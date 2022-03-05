@@ -146,7 +146,7 @@ export default function Home() {
       >
         Show modal
       </Button>
-      {/* <div className="mb-4 mt-6 font-bold text-sm font-Merriweather">
+      <div className="mb-4 mt-6 font-bold text-sm font-Merriweather">
         Mobile Modal
       </div>
       <Button
@@ -157,7 +157,7 @@ export default function Home() {
         className="mb-4"
       >
         Show mobile modal
-      </Button> */}
+      </Button>
       <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
         Inputs
       </div>
@@ -171,7 +171,7 @@ export default function Home() {
           onChange={(event) => setState({ ...state, name: event.target.value })}
         ></Input>
       </div>
-      <div className="mt-8 md:w-96">
+      <div className="mt-8 sm:w-96">
         <TextArea
           label="Message"
           placeholder="What is your message?"
@@ -327,7 +327,7 @@ export default function Home() {
       <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
         Input Select
       </div>
-      <div className="mt-16 w-80 mb-28">
+      <div className="mt-16 sm:w-96 mb-28">
         <SelectInput options={options} instanceId="foods"></SelectInput>
       </div>
       <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">

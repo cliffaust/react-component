@@ -8,7 +8,7 @@ body {
 }
 
 .DayPicker-Day {
-  @apply !w-12 !h-12 outline-none transition-colors ease-linear duration-200;
+  @apply w-10 h-10 sm:!w-12 sm:!h-12 rounded-full outline-none transition-colors ease-linear duration-200;
 }
 
 .DayPicker:not(.DayPicker--interactionDisabled)
@@ -29,7 +29,7 @@ body {
 }
 
 .DayPicker-Day--selected {
-  @apply !bg-green-600 !rounded-full !w-12 !h-12 outline-none transition-colors ease-linear duration-200;
+  @apply !bg-green-600 !rounded-full w-10 h-10 sm:!w-12 sm:!h-12 outline-none transition-colors ease-linear duration-200;
 }
 
 .swiper-pagination > .swiper-pagination-bullet {

@@ -29,19 +29,20 @@ function Modal({
 
   const container = {
     show: {
-      top: "calc(100vh - 410px)",
+      top: "calc(100vh - 80%)",
+      opacity: 1,
       transition: {
-        type: "spring",
-        stiffness: 60,
+        type: "linear",
+        duration: 0.5,
         delay: 0.1,
       },
     },
 
     hidden: {
       top: "100vh",
+      opacity: 0,
       transition: {
-        type: "spring",
-        stiffness: 60,
+        type: "linear",
       },
     },
   };
@@ -61,16 +62,19 @@ function Modal({
           <motion.div
             onClick={(e) => e.stopPropagation()}
             variants={container}
+            animate="show"
+            initial="hidden"
+            exit="hidden"
             className={
-              "p-4 h-96 bg-white shadow-lg mx-auto rounded-xl z-20 overflow-y-scroll relative " +
+              "py-4 h-4/5 bg-white shadow-lg mx-auto sm:rounded-xl rounded-t-xl z-20 overflow-y-scroll relative " +
               className
             }
           >
-            {children}
-            <div>
+            <div className="relative text-center font-Merriweather border-b border-gray-100 mb-4">
+              <h1 className="text-lg font-bold">Title</h1>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute top-6 right-6 cursor-pointer lg:hidden w-7 h-7 z-20"
+                className="absolute top-1 left-4 cursor-pointer lg:hidden w-5 h-5 z-20"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -84,6 +88,7 @@ function Modal({
                 />
               </svg>
             </div>
+            <div className="px-4">{children}</div>
           </motion.div>
         </motion.div>
       ) : (
