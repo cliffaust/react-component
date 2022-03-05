@@ -19,6 +19,9 @@ import SelectInput from "../components/SelectInput";
 import DatePicker from "../components/DatePicker";
 import Accordion from "../components/Accordion";
 import Carousel from "../components/Carousel";
+import ListItem from "../components/ListItem";
+import LoadingCardSkeleton from "../components/LoadingCardSkeleton";
+import Dropdown from "../components/Dropdown";
 
 export default function Home() {
   const [state, setState] = useState({
@@ -34,6 +37,7 @@ export default function Home() {
     date: "",
     showDate: false,
     accordionNum: -1,
+    showDropdown: false,
   });
 
   const options = [
@@ -85,6 +89,8 @@ export default function Home() {
     },
   ];
 
+  const foods = ["Chocolate", "Strawberry", "Pinapple", "Apple", "Orange"];
+
   const imagePaths = [
     "/images/image1.jpg",
     "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2946&q=80",
@@ -104,11 +110,12 @@ export default function Home() {
           showBottomTooltip: false,
           showModal: false,
           showDate: false,
+          showDropdown: false,
         });
       }}
       className="sm:px-8 px-4 py-8 relative"
     >
-      <div className="mb-8 font-bold text-2xl font-Merriweather text-center">
+      <div className="mb-8 font-bold text-lg sm:text-2xl font-Merriweather text-center">
         Buttons
       </div>
       <Button className="mb-4">
@@ -158,7 +165,7 @@ export default function Home() {
       >
         Show mobile modal
       </Button>
-      <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
+      <div className="mb-8 mt-24 font-bold text-lg sm:text-2xl font-Merriweather text-center">
         Inputs
       </div>
       <div className="md:w-96">
@@ -182,7 +189,7 @@ export default function Home() {
           }
         ></TextArea>
       </div>
-      <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
+      <div className="mb-8 mt-24 font-bold text-lg sm:text-2xl font-Merriweather text-center">
         Loading
       </div>
       <div className="mt-8">
@@ -199,7 +206,7 @@ export default function Home() {
           color="#3fa34d"
         ></LoadingSpinerChase>
       </div>
-      <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
+      <div className="mb-8 mt-24 font-bold text-lg sm:text-2xl font-Merriweather text-center">
         Switch
       </div>
       <div className="mt-8 mb-8">
@@ -208,7 +215,7 @@ export default function Home() {
           slideColorClass="!bg-orange-200"
         ></Switch>
       </div>
-      <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
+      <div className="mb-8 mt-24 font-bold text-lg sm:text-2xl font-Merriweather text-center">
         Tooltip
       </div>
       <div className="mt-8 w-full mb-14">
@@ -314,7 +321,16 @@ export default function Home() {
         optio quas natus totam unde ipsum, dignissimos ea assumenda vitae at
         debitis eveniet ullam! Dolorum consectetur veritatis sunt aut expedita!
       </MobileModal>
-      <div className="mt-24">
+      <div className="mt-16 font-bold text-lg sm:text-2xl font-Merriweather text-center">
+        Card Skeleton Loader
+      </div>
+      <div className="mt-8">
+        <LoadingCardSkeleton></LoadingCardSkeleton>
+      </div>
+      <div className="mt-16 font-bold text-lg sm:text-2xl font-Merriweather text-center">
+        Card
+      </div>
+      <div className="mt-8">
         <Card
           imagePaths={imagePaths}
           header="Right Here."
@@ -324,13 +340,13 @@ export default function Home() {
           <Button>Learn More</Button>
         </Card>
       </div>
-      <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
+      <div className="mb-8 mt-24 font-bold text-lg sm:text-2xl font-Merriweather text-center">
         Input Select
       </div>
       <div className="mt-16 sm:w-96 mb-28">
         <SelectInput options={options} instanceId="foods"></SelectInput>
       </div>
-      <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
+      <div className="mb-8 mt-24 font-bold text-lg sm:text-2xl font-Merriweather text-center">
         Date Field
       </div>
       <div className="mt-16">
@@ -356,7 +372,7 @@ export default function Home() {
           showDate={state.showDate}
         ></DatePicker>
       </div>
-      <div className="mt-36 font-bold text-2xl font-Merriweather text-center">
+      <div className="mt-36 font-bold text-lg sm:text-2xl font-Merriweather text-center">
         Text
       </div>
       <div className="mt-16">
@@ -387,7 +403,7 @@ export default function Home() {
         itaque illo distinctio animi reprehenderit nobis, facilis facere placeat
         maiores quisquam?
       </div>
-      <div className="mt-36 font-bold text-2xl font-Merriweather text-center">
+      <div className="mt-36 font-bold text-lg sm:text-2xl font-Merriweather text-center">
         Accordion
       </div>
       <div className="mt-16 w-full">
@@ -412,11 +428,59 @@ export default function Home() {
           })}
         </div>
       </div>
-      <div className="mt-36 font-bold text-2xl font-Merriweather text-center">
+      <div className="mt-36 font-bold text-lg sm:text-2xl font-Merriweather text-center">
         Carousel
       </div>
       <div className="mt-16 max-w-xl h-72 rounded-xl overflow-hidden">
         <Carousel images={imagePaths} imageClass="rounded-2xl"></Carousel>
+      </div>
+      <div className="mt-16 font-bold text-lg sm:text-2xl font-Merriweather text-center">
+        Dropdown
+      </div>
+      <div className="mt-8 relative">
+        <Button
+          onClick={(e) => {
+            e.stopPropagation();
+            setState({ ...state, showDropdown: !state.showDropdown });
+          }}
+          className="mb-4"
+        >
+          <span className="mr-1 inline-block">Dropdown</span>{" "}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </Button>
+        <Dropdown
+          showDropdown={state.showDropdown}
+          className="absolute top-full mt-2 w-56"
+        >
+          <div className="hover:bg-gray-100 transition-colors duration-300 cursor-pointer ease-in-out px-2 py-2">
+            Item 1
+          </div>
+          <div className="hover:bg-gray-100 transition-colors duration-300 cursor-pointer ease-in-out px-2 py-2">
+            Item 2
+          </div>
+          <div className="hover:bg-gray-100 transition-colors duration-300 cursor-pointer ease-in-out px-2 py-2">
+            Item 3
+          </div>
+        </Dropdown>
+      </div>
+      <div className="mt-16 font-bold text-lg sm:text-2xl font-Merriweather text-center">
+        List Items
+      </div>
+      <div className="mt-8">
+        {foods.map((food, index) => (
+          <ListItem key={index}>{food}</ListItem>
+        ))}
       </div>
     </div>
   );
