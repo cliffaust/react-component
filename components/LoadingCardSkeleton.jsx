@@ -4,8 +4,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 function LoadingCardSkeleton() {
   return (
-    <div>
-      <Skeleton className="w-full sm:w-80 !rounded-t-2xl h-48"></Skeleton>
+    <div className="w-full sm:w-80">
+      <Skeleton className="!rounded-t-2xl h-48"></Skeleton>
       <Skeleton className="h-8 mt-1"></Skeleton>
       <div className="mt-3">
         <Skeleton className="h-4" count={3}></Skeleton>
