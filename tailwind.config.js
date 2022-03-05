@@ -15,6 +15,10 @@ module.exports = {
         600: "600px",
         800: "800px",
       },
+
+      maxWidth: {
+        230: "230px",
+      },
     },
   },
   plugins: [],

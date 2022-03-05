@@ -51,7 +51,7 @@ function BottomTooltip({ changeTooltipState, showTooltip, children }) {
             exit="exit"
             className={
               styles.tooltip +
-              " w-80 px-2 py-3 bg-gray-200 rounded-md absolute -bottom-32 -left-3"
+              " w-40 px-2 py-3 bg-gray-200 rounded-md absolute top-full mt-2 -left-0.5"
             }
           >
             {children}

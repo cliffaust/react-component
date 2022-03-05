@@ -33,10 +33,10 @@ body {
 }
 
 .swiper-pagination > .swiper-pagination-bullet {
-  @apply opacity-100;
+  @apply opacity-100 w-2.5 h-2.5;
 }
 .swiper-pagination > .swiper-pagination-bullet-active {
-  @apply bg-green-600;
+  @apply bg-white;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {

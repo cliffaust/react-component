@@ -208,11 +208,11 @@ export default function Home() {
           slideColorClass="!bg-orange-200"
         ></Switch>
       </div>
-      {/* <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
+      <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
         Tooltip
       </div>
-      <div className="mt-8 w-full sm:flex flex-col items-center justify-center mb-14">
-        <h1 className="text-lg font-bold mb-4">Top</h1>
+      <div className="mt-8 w-full mb-14">
+        <h1 className="text-sm font-Merriweather font-bold mb-4">Top</h1>
         <TopTooltip
           showTooltip={state.showTopTooltip}
           changeTooltipState={(e) => {
@@ -220,11 +220,11 @@ export default function Home() {
             setState({ ...state, showTopTooltip: !state.showTopTooltip });
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Lorem ipsum dolor sit amet consectetur
         </TopTooltip>
       </div>
-      <div className="mt-8 w-full sm:flex flex-col items-center justify-center mb-14">
-        <h1 className="text-lg font-bold mb-4">Left</h1>
+      <div className="mt-8 w-full flex flex-col items-end mb-14">
+        <h1 className="text-sm font-Merriweather font-bold mb-4">Left</h1>
         <LeftTooltip
           showTooltip={state.showLeftTooltip}
           changeTooltipState={(e) => {
@@ -232,11 +232,11 @@ export default function Home() {
             setState({ ...state, showLeftTooltip: !state.showLeftTooltip });
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Lorem ipsum dolor sit amet consectetur
         </LeftTooltip>
       </div>
-      <div className="mt-8 w-full sm:flex flex-col items-center justify-center mb-14">
-        <h1 className="text-lg font-bold mb-4">Right</h1>
+      <div className="mt-8 w-full mb-14">
+        <h1 className="text-sm font-Merriweather font-bold mb-4">Right</h1>
         <RightTooltip
           showTooltip={state.showRightTooltip}
           changeTooltipState={(e) => {
@@ -244,11 +244,11 @@ export default function Home() {
             setState({ ...state, showRightTooltip: !state.showRightTooltip });
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Lorem ipsum dolor sit amet consectetur
         </RightTooltip>
       </div>
-      <div className="mt-8 w-full sm:flex flex-col items-center justify-center mb-28">
-        <h1 className="text-lg font-bold mb-4">Bottom</h1>
+      <div className="mt-8 w-full mb-28">
+        <h1 className="text-sm font-Merriweather font-bold mb-4">Bottom</h1>
         <BottomTooltip
           showTooltip={state.showBottomTooltip}
           changeTooltipState={(e) => {
@@ -256,9 +256,9 @@ export default function Home() {
             setState({ ...state, showBottomTooltip: !state.showBottomTooltip });
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Lorem ipsum dolor sit amet consectetur
         </BottomTooltip>
-      </div> */}
+      </div>
       <TopBarMessage
         showTopBarMessage={state.showTopBarMessage}
         closeTopBarMessage={(e) => {

@@ -25,7 +25,7 @@ function TopTooltip({ changeTooltipState, showTooltip, children }) {
     },
   };
   return (
-    <div className="relative">
+    <div className="relative inline-block">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-5 w-5 cursor-pointer"
@@ -51,7 +51,7 @@ function TopTooltip({ changeTooltipState, showTooltip, children }) {
             exit="exit"
             className={
               styles.tooltip +
-              " w-80 px-2 py-3 bg-gray-200 rounded-md absolute -top-32 -left-3"
+              " w-40 px-2 py-3 bg-gray-200 rounded-md absolute bottom-full left-2/4 -ml-3 mb-2"
             }
           >
             {children}

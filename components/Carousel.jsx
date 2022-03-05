@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import PropTypes from "prop-types";
 import Image from "next/image";
 import SwiperCore, { Navigation, Pagination } from "swiper";
+import { motion, AnimatePresence } from "framer-motion";
 
 SwiperCore.use([Navigation]);
 
@@ -18,16 +19,38 @@ function Carousel({ imageClass = "", className = "", images }) {
       //   clickable: true,
       dynamicBullets: true,
     },
-    // navigation: {
-    //   nextEl: ".swiper-button-next",
-    //   prevEl: ".swiper-button-prev",
-    // },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   };
 
   const [state, setState] = useState({
     swiperIndex: 0,
     endOfSlide: false,
+    showNavigation: false,
   });
+
+  const variants = {
+    hide: {
+      scale: 0.5,
+      opacity: 0.7,
+      x: -20,
+    },
+    show: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      x: -5,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
   return (
     <Swiper
       {...settings}
@@ -42,7 +65,12 @@ function Carousel({ imageClass = "", className = "", images }) {
       className="!h-full"
     >
       {images.map((image, index) => (
-        <SwiperSlide key={index} className={"!h-full " + className}>
+        <SwiperSlide
+          onMouseLeave={() => setState({ ...state, showNavigation: false })}
+          onMouseEnter={() => setState({ ...state, showNavigation: true })}
+          key={index}
+          className={"!h-full " + className}
+        >
           <Image
             className={"w-full object-cover " + imageClass}
             src={image}
@@ -51,10 +79,17 @@ function Carousel({ imageClass = "", className = "", images }) {
           />
         </SwiperSlide>
       ))}
-      {/* <div
+
+      <motion.div
+        onMouseLeave={() => setState({ ...state, showNavigation: false })}
+        onMouseEnter={() => setState({ ...state, showNavigation: true })}
+        variants={variants}
+        animate={state.showNavigation ? "show" : ""}
+        initial="hide"
+        exit="exit"
         className={
           "absolute flex cursor-pointer items-center justify-center top-2/4 z-10 left-3 -translate-y-2/4 swiper-pagination swiper-button-prev w-8 h-8 rounded-full bg-white shadow-lg " +
-          (state.swiperIndex === 0 ? "invisible" : "")
+          (state.swiperIndex === 0 || !state.showNavigation ? "invisible" : "")
         }
       >
         <svg
@@ -69,11 +104,17 @@ function Carousel({ imageClass = "", className = "", images }) {
             clipRule="evenodd"
           />
         </svg>
-      </div>
-      <div
+      </motion.div>
+      <motion.div
+        onMouseLeave={() => setState({ ...state, showNavigation: false })}
+        onMouseEnter={() => setState({ ...state, showNavigation: true })}
+        variants={variants}
+        animate={state.showNavigation ? "show" : ""}
+        initial="hide"
+        exit="exit"
         className={
           "absolute cursor-pointer flex items-center justify-center top-2/4 z-10 right-3 -translate-y-2/4 swiper-pagination swiper-button-next w-8 h-8 rounded-full bg-white shadow-lg " +
-          (state.endOfSlide ? "hidden" : "")
+          (state.endOfSlide || !state.showNavigation ? "invisible" : "")
         }
       >
         <svg
@@ -88,7 +129,7 @@ function Carousel({ imageClass = "", className = "", images }) {
             clipRule="evenodd"
           />
         </svg>
-      </div> */}
+      </motion.div>
     </Swiper>
   );
 }

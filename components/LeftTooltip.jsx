@@ -25,7 +25,7 @@ function LeftTooltip({ changeTooltipState, showTooltip, children }) {
     },
   };
   return (
-    <div className="relative">
+    <div className="relative inline-block">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-5 w-5 cursor-pointer ml-1"
@@ -51,7 +51,7 @@ function LeftTooltip({ changeTooltipState, showTooltip, children }) {
             exit="exit"
             className={
               styles.tooltip +
-              " w-80 px-2 py-3 bg-gray-200 rounded-md absolute -left-80 -top-12 -translate-y-2/4"
+              " w-40 px-2 py-3 bg-gray-200 rounded-md absolute right-full -top-6 left-auto"
             }
           >
             {children}
