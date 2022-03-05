@@ -13,6 +13,7 @@ import RightTooltip from "../components/RightTooltip";
 import BottomTooltip from "../components/BottomTooltip";
 import TopBarMessage from "../components/TopBarMessage";
 import Modal from "../components/Modal";
+import MobileModal from "../components/MobileModal";
 import Card from "../components/Card";
 import SelectInput from "../components/SelectInput";
 import DatePicker from "../components/DatePicker";
@@ -29,6 +30,7 @@ export default function Home() {
     showBottomTooltip: false,
     showTopBarMessage: false,
     showModal: false,
+    mobileShowModal: false,
     date: "",
     showDate: false,
     accordionNum: -1,
@@ -144,6 +146,18 @@ export default function Home() {
       >
         Show modal
       </Button>
+      {/* <div className="mb-4 mt-6 font-bold text-sm font-Merriweather">
+        Mobile Modal
+      </div>
+      <Button
+        onClick={(event) => {
+          event.stopPropagation();
+          setState({ ...state, mobileShowModal: true });
+        }}
+        className="mb-4"
+      >
+        Show mobile modal
+      </Button> */}
       <div className="mb-8 mt-24 font-bold text-2xl font-Merriweather text-center">
         Inputs
       </div>
@@ -278,6 +292,28 @@ export default function Home() {
         optio quas natus totam unde ipsum, dignissimos ea assumenda vitae at
         debitis eveniet ullam! Dolorum consectetur veritatis sunt aut expedita!
       </Modal>
+      <MobileModal
+        showModal={state.mobileShowModal}
+        closeModal={(e) => {
+          e.stopPropagation();
+          setState({ ...state, mobileShowModal: false });
+        }}
+        className="w-full md:w-11/12 lg:w-4/5"
+      >
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laborum
+        nulla inventore blanditiis quas a itaque quibusdam odio pariatur rerum
+        sapiente mollitia nesciunt repellat unde quaerat, ea quasi ab officia!
+        Corrupti ullam doloremque voluptas animi vero repudiandae quia, iusto
+        consectetur voluptatibus ex placeat repellat suscipit tempore enim
+        consequuntur fugit tempora cum sint et ad velit deserunt quisquam
+        similique! Quaerat, sunt? Laudantium, harum aspernatur hic earum, ipsam
+        repudiandae illum explicabo temporibus beatae incidunt mollitia tempore
+        praesentium expedita autem! Harum perspiciatis inventore dolores vitae,
+        cum fugit officiis adipisci impedit, provident, laudantium ea! Aut
+        dolorem itaque repudiandae quis laboriosam odit saepe suscipit velit
+        optio quas natus totam unde ipsum, dignissimos ea assumenda vitae at
+        debitis eveniet ullam! Dolorum consectetur veritatis sunt aut expedita!
+      </MobileModal>
       <div className="mt-24">
         <Card
           imagePaths={imagePaths}

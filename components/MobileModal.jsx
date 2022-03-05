@@ -29,7 +29,7 @@ function Modal({
 
   const container = {
     show: {
-      y: "20px",
+      top: "calc(100vh - 410px)",
       transition: {
         type: "spring",
         stiffness: 60,
@@ -38,7 +38,7 @@ function Modal({
     },
 
     hidden: {
-      y: "-100vh",
+      top: "100vh",
       transition: {
         type: "spring",
         stiffness: 60,
@@ -62,7 +62,7 @@ function Modal({
             onClick={(e) => e.stopPropagation()}
             variants={container}
             className={
-              "p-4 bg-white shadow-lg mx-auto rounded-xl z-20 overflow-y-scroll relative " +
+              "p-4 h-96 bg-white shadow-lg mx-auto rounded-xl z-20 overflow-y-scroll relative " +
               className
             }
           >
@@ -70,7 +70,7 @@ function Modal({
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute top-2 right-2 cursor-pointer lg:hidden w-7 h-7 z-20"
+                className="absolute top-6 right-6 cursor-pointer lg:hidden w-7 h-7 z-20"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

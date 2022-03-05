@@ -5,7 +5,7 @@ import Carousel from "./Carousel";
 
 function Card({ imagePaths, subText, header, children }) {
   return (
-    <div className="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white">
+    <div className="w-full sm:w-80 rounded-2xl overflow-hidden shadow-lg bg-white">
       <div className="w-full h-48 relative">
         <Carousel
           images={imagePaths}

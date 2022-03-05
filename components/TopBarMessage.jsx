@@ -35,7 +35,8 @@ function TopBarMessage({
           initial="hide"
           exit="exit"
           className={
-            "fixed top-8 right-6 p-2 rounded-md bg-red-100 w-80 " + className
+            "fixed top-8 right-2 ml-2 sm:right-6 p-2 rounded-md bg-red-100 max-w-xs " +
+            className
           }
         >
           {children}
